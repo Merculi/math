@@ -34,3 +34,35 @@ Deno.test("1/3 + 2/6 = 2/3 is roughly 0.67", () => {
   // Assert
   assertAlmostEquals(left.toFloat(0.01), 0.67);
 });
+
+Deno.test("2/3 * 6/7 = 4/7 is roughly 0.57", () => {
+    //Arrange
+    const left = new Fraction(2, 3);
+    const right = new Fraction(6, 7);
+
+    // Act
+    left.multiply(right);
+
+    //Assert
+    assertAlmostEquals(left.toFloat(0.01), 0.57);
+    });
+
+Deno.test("3/4 - 1/4 = 8/16 is 0.5", () => {
+    // Arrange
+    const left = new Fraction(3, 4);
+    const right = new Fraction(1, 4);
+
+    // Act
+    left.subtract(right);
+
+    // Assert
+    assertEquals(left.toFloat(0.1), 0.5);
+});
+
+Deno.test("toString hat korrektes Format", () => {
+    // Arrange
+    const fraction = new Fraction(5, 8);
+
+    // Act & Assert
+    assertEquals(fraction.toString(), "5/8");
+});
