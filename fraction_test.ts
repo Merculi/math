@@ -66,3 +66,11 @@ Deno.test("toString hat korrektes Format", () => {
     // Act & Assert
     assertEquals(fraction.toString(), "5/8");
 });
+
+Deno.test("parse correctly parses valid fraction string", () => {
+    // Act
+    const fraction = Fraction.parse(" 7 / 9 ");
+
+    // Assert
+    assertEquals(fraction.toString(), "7/9");
+});
